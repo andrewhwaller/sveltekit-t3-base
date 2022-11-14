@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+a.active {
+    @apply dark:bg-gray-800 dark:text-blue-300 bg-gray-200;
+}
+
+.notifications {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.toast {
+    z-index: 9000;
+    flex: 0 0 auto;
+    margin-bottom: 10px;
+}
+
+.dark path.st0 {
+    fill: #FFFFFF;
+}
+
+path.st0 {
+    fill: #171717;
+}
+
+path.st1, rect.st1 {
+    fill: #27DBF2;
+}
