@@ -37,8 +37,8 @@ export const appConfig: AppConfig = {
 			icon: Home
 		},
 		{
-			name: 'Text',
-			href: '/test',
+			name: 'Test TRPC',
+			href: '/test_trpc',
 			icon: BookOpen
 		}
 	]
