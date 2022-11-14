@@ -5,6 +5,6 @@ export const helloProcedure = t.procedure
 	.input(z.object({ name: z.string().optional() }))
 	.query(({ input }) => {
 		return {
-			message: `Hello ${input.name || 'world'}`,
+			message: `Hello, ${input.name || 'world'}`,
 		}
 	})
