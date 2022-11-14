@@ -8,8 +8,8 @@
 </script>
 
 <div class="flex flex-col items-center gap-7 py-7 dark:text-white">
-	<button on:click={() => greet('Svelte')}>Say hello</button>
-	<button on:click={() => greet()}>Say hello world</button>
+	<button on:click={() => greet('Svelte')}>Say hello, Svelte</button>
+	<button on:click={() => greet()}>Say hello, world</button>
 	<h1 class="text-3xl font-bold" id="message">SvelteKit Base</h1>
 	<svg
 		class="h-32 w-32"
