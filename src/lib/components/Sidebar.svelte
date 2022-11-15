@@ -1,15 +1,16 @@
 <script lang="ts">
-	import type { IconThemeSource } from '@steeze-ui/svelte-icon';
 	import NavLink from '$lib/components/NavLink.svelte';
 	import NavToggle from '$lib/components/NavToggle.svelte';
+	import type { NavItem } from '$lib/config';
+	import MainMenu from '$lib/components/MainMenu.svelte';
+	import UserMenu from '$lib/components/UserMenu.svelte';
 
-	export let navItems: {
-		name: string;
-		icon: { default: IconThemeSource } & { [p: string]: IconThemeSource };
-		href: string;
-	}[];
+	export let navItems: NavItem[];
 	export let title: string;
 	export let show = false;
+	export let displayMainMenu = false;
+	export let displayLogo = false;
+	export let displayUserMenu = false;
 	export let allowNavToggle: boolean;
 	export let allowNavClose: boolean;
 	export let minimal: boolean;
@@ -17,30 +18,36 @@
 
 {#if show}
 	<div
-		class="bg-gray-100 dark:bg-gray-900 border-r-[1px] border-gray-300 dark:border-gray-800 flex flex-col pb-2"
+		class="flex flex-col border-r-[1px] border-gray-300 bg-gray-100 pb-2 dark:border-gray-800 dark:bg-gray-900"
 	>
-		<div class="flex flex-col h-0 flex-1 pt-2 {minimal ? 'w-12' : 'w-56 min-w-max'}">
-			<div class="flex-1 flex flex-col overflow-y-auto">
-				<nav class="flex-1 px-2 pb-2 flex flex-col">
-					<div class="mb-5 flex w-full justify-between items-center">
+		<div class="flex h-0 flex-1 flex-col pt-2 {minimal ? 'w-12' : 'w-56 min-w-max'}">
+			{#if displayLogo}
+				<div class="{minimal && 'hidden'} mx-auto flex flex-shrink-0 items-center px-2 pb-2">
+					<!-- Add logo here -->
+				</div>
+			{/if}
+			<div class="mt-2 flex flex-1 flex-col overflow-y-auto">
+				<nav class="flex flex-1 flex-col px-2 pb-2">
+					<div class="mb-3 flex w-full items-center justify-between">
 						<span class="flex min-w-0 items-center justify-between space-x-2">
-							<span class="flex-1 flex flex-col min-w-0">
-								{#if !minimal}
-									<span class="text-sm font-medium truncate dark:text-white text-gray-600">
-										{title}
-									</span>
-								{/if}
+							<span class="flex min-w-0 flex-1 flex-col">
+								<div>
+									<MainMenu {displayMainMenu} {title} {minimal} />
+								</div>
 							</span>
 						</span>
 					</div>
 					<div>
 						{#each navItems as item}
-							<NavLink {...item} {minimal} />
+							<NavLink {item} {minimal} />
 						{/each}
 					</div>
 					<div class="mt-auto flex flex-col space-y-3">
 						{#if allowNavToggle}
 							<NavToggle bind:show bind:minimal bind:allowClose={allowNavClose} />
+						{/if}
+						{#if displayUserMenu}
+							<UserMenu bind:minimal navMode={'sidebar'} thinNavbar={false} />
 						{/if}
 					</div>
 				</nav>
