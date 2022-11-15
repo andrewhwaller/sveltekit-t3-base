@@ -32,6 +32,7 @@ path.st0 {
     fill: #171717;
 }
 
-path.st1, rect.st1 {
+path.st1,
+rect.st1 {
     fill: #27DBF2;
 }
