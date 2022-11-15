@@ -8,7 +8,7 @@ export interface AppConfig {
 	allowNavToggle: boolean;
 	allowNavClose: boolean;
 	displayLogo: boolean;
-	displayCloudMenu: boolean;
+	displayMainMenu: boolean;
 	displayUserMenu: boolean;
 	thinNavbar: boolean;
 	darkByDefault: boolean;
@@ -24,9 +24,9 @@ export const appConfig: AppConfig = {
 	title: 'SvelteKit Base',
 	navMode: 'sidebar',
 	allowNavToggle: true,
-	allowNavClose: false,
-	displayLogo: true,
-	displayCloudMenu: true,
+	allowNavClose: true,
+	displayLogo: false,
+	displayMainMenu: false,
 	displayUserMenu: false,
 	thinNavbar: false,
 	darkByDefault: false,
