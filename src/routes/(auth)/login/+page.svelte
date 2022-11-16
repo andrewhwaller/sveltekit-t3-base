@@ -1,0 +1,1 @@
+<a href="/api/auth/sign_in">Log in</a>

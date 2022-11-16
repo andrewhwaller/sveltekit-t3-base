@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '../app.css';
+	import './../../app.css';
 	import { fly } from 'svelte/transition';
 	import { QueryClient, QueryClientProvider } from '@sveltestack/svelte-query';
 	import { Icon } from '@steeze-ui/svelte-icon';
@@ -7,7 +7,6 @@
 	import Sidebar from '$lib/components/Sidebar.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import { appConfig } from '$lib/config';
-	import { onMount } from 'svelte';
 	const {
 		allowNavToggle,
 		allowNavClose,
